@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Ninja Gold</title>
+     {% load static %}
+     <link rel="stylesheet" href="{% static 'css/style.css' %} "/>
+</head>
+<body>
+     <h1>Your Gold: {{request.session.gold}}</h1>
+     <form action="/process-money" method="POST" class="PocketGold" >
+          {% csrf_token %}
+          <h2 class="farm" >FARM</h2>
+          <h3>earns 10-20 golds</h3>
+          <input type="hidden" name="PocketGold" value="farm">
+          <input type="submit" value="Find Gold!">
+     </form>
+
+     <form action="/process-money" method="post">
+          {% csrf_token %}
+          <h2 class="cave" >CAVE</h2>
+          <h3>earns 5-10 golds</h3>
+          <input type="hidden" name="PocketGold" value="cave">
+          <input type="submit" value="Find Gold!">
+     </form>
+
+     <form action="/process-money" method="post">
+          {% csrf_token %}
+          <h2 class="house" >HOUSE</h2>
+          <h3>earns 2-5 golds</h3>
+          <input type="hidden" name="PocketGold" value="house">
+          <input type="submit" value="Find Gold!">
+     </form>
+
+     <form action="/process-money" method="post">
+          {% csrf_token %}
+          <h2 class="casino" >CASINO</h2>
+          <h3>earns/lose 0-50 golds</h3>
+          <input type="hidden" name="PocketGold" value="casino">
+          <input type="submit" value="Find Gold!">
+     </form>
+
+     <h1>Activities:</h1>
+     <div id="activities">
+          {% for activity in activities %}
+               {% if 'Lose' in activity %}
+          <p class="red">{{activity}}</p>
+               {% else %}
+          <p class="green">{{activity}}</p>
+               {% endif %}
+          {% endfor %}
+     </div>
+
+</body>
+</html>

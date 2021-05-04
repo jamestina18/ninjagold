@@ -1,0 +1,25 @@
+.farm{
+     color: rgb(243, 133, 8);
+}
+.cave{
+     color: gray;
+}
+.house{
+     color: rgb(14, 177, 192);
+}
+.casino{
+     color: gold;
+}
+form{
+     display: inline-block;
+     padding: 2em;
+     margin: 5%;
+     border: 5px solid goldenrod;
+     border-radius: 50px;
+}
+.green{
+     color: rgb(3, 151, 3);
+}
+.red{
+     color: red;
+}
